@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="开始滚" @click="lang">
+        <input type="button" value="低调" @click='stop'>
+        <h3 v-cloak>{{msg}}</h3>
+    </div>
+
+    <script src="../vue2.6.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'XT是个大沙雕~~~~~~',
+                interval:null   //给计时器id赋值为null
+            },
+            methods: {
+                lang() {
+                    if(this.interval != null) return;
+                    this.interval = setInterval(() => {
+                        let start = this.msg.substr(0, 1);
+                        let end = this.msg.substr(1);
+                        this.msg = end + start;
+                    },300);
+                },
+                stop(){
+                    clearInterval(this.interval);
+                    this.interval=null;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

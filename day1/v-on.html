@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .inner {
+            background-color: red;
+            height: 300px;
+        }
+        .outline{
+            height: 400px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用 .stop  阻止事件冒泡 -->
+        <!-- <div class="inner" @click = 'innerClick'>
+            <input type="button" value="点~~~~" @click.stop= 'btnClick'>
+        </div> -->
+
+        <!-- .capture 实现事件捕获机制(对父盒子使用) -->
+        <!-- <div class="inner" @click.capture='innerClick'>
+            <input type="button" value="点~~~~" @click.stop='btnClick'>
+        </div> -->
+
+        <!-- .linkClick 阻止默认行为 -->
+        <!-- <a href="http://www.baidu.com" @click.prevent='linkClick'>百度</a> -->
+
+        <!-- .once 只触发一次事件处理函数 -->
+        <!-- <a href="http://www.baidu.com" @click.once='linkClick'>百度</a> -->
+
+        <!-- .self 只有点击当前元素的时候才会触发 -->
+        <!-- <div class="inner" @click='innerClick'>
+            <input type="button" value="点~~~~" @click.stop='btnClick'>
+        </div> -->
+
+        <!-- .self 只会阻止自己身上冒泡的行为触发，并不会真正阻止 冒泡事件 -->
+        <!-- <div class="outline" @click='outClick'>
+                <div class="inner" @click.self='innerClick'>
+                        <input type="button" value="点~~~~" @click='btnClick'>
+                </div>
+        </div> -->
+    </div>
+
+    <script src="../vue2.6.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                innerClick() {
+                    console.log('红色的div');
+                },
+                btnClick() {
+                    console.log('按钮');
+                },
+                linkClick() {
+                    console.log('触发了点击事件');
+                },
+                outClick(){
+                    console.log('黄色的div');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
