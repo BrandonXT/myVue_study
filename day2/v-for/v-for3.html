@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../vue2.6.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(val,key,i) in list">键：{{key}}----值：{{val}}------索引：（{{i}}）</p>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                list:{  //直接为对象
+                    id:1,
+                    name:'Brandon',
+                    sex:'man'
+                }
+            },
+            methods:{}
+        })
+    </script>
+</body>
+</html>
