@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.7.css">
+    <script src="../lib/vue2.6.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label>
+                    id:
+                    <input type="text" class="form-control" v-model="id">
+                </label>
+                <label>
+                    name:
+                    <input type="text" class="form-control" v-model="name">
+                </label>
+                <input type="button" value="添加" class="btn btn-primary" @click="add">
+                <label>
+                    搜索名称关键字：
+                    <input type="text" class="form-control" v-model="keywords">
+                </label>
+            </div>
+        </div>
+
+
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in search(keywords)" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td v-text="item.name"></td>
+                    <td>{{item.ctime}}</td>
+                    <td>
+                        <a href="" @click.prevent='del(item.id)'>删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                id:'',
+                name:'',
+                keywords:'',
+                list:[
+                    {id:1,name:'宝马',ctime: new Date()},
+                    {id:2,name:'奔驰',ctime: new Date()},
+                    
+                ]
+            },
+            methods:{
+                add(){ //添加数据
+                    let car = {id:this.id,name:this.name,ctime:new Date()};
+                    this.list.push(car);
+                    this.name = this.id = '';
+                },
+                search(keywords){ //根据关键字搜索
+                    // let newList = [],
+                    // this.list.forEach(item => {
+                    //     if(item.name.indexOf(keywords)!=-1){
+                    //         newList.push(item);  //将符合条件的数据存进数组
+                    //     }
+                    // });
+                    // return newList; //将新数组返回
+
+                    //注意：foreach some filter findindex  都是数组新方法
+                    return this.list.filter(item =>{
+
+                    // if(item.name.indexOf(keywords)!=-1){
+                    //     return item
+                    // }
+                    //注意：es6中为字符串提供了一个 新的方法，string.prototype.includes('要包含的字符串')
+                    //如果包含，则返回 true ，则返回false
+
+                    if(item.name.includes(keywords)){
+                        return item
+                    }
+                    })
+                },
+                del(id){
+                    //分析
+                    // this.list.some((item,i)=>{
+                    //     if(item.id==id){
+                    //         this.list.splice(i,1)
+                    //         //在数组的some中，如果return true就会中止后续循环
+                    //         return true;
+                    //     }
+                    // })
+
+                        //找到下标
+                    let index = this.list.findIndex(item=>{
+                        if(item.id == id){
+                            return true;
+                        }
+                    });
+                    console.log(index);
+                    this.list.splice(index,1);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
