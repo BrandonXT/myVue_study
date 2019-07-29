@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue2.6.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>计算属性</h1>
+        <button @click="a++">add to a</button>
+        <button @click="b++">add to b</button>
+        <p>A -- {{a}}</p>
+        <p>B -- {{b}}</p>
+        
+        <!-- <p>age + a = {{addToA()}}</p>
+        <p>age + b = {{addToB()}}</p> -->
+        <p>age + a = {{addToA}}</p>
+        <p>age + b = {{addToB}}</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            a:0,
+            b:0,
+            age:20,
+        },
+        methods:{ //所有方法都会执行一遍
+           /* addToA:function(){
+                console.log('addtoaa');
+                return this.a+this.age;
+            },
+            addToB:function(){
+                console.log('addtobb');
+                return this.b+this.age;
+            }*/
+        },
+        computed:{  //变化幅度比较大，比如搜索的时候用   （会检查虚拟dom与真实dom是否相同，相同就不会触发，不同就执行）
+            addToA:function(){
+                console.log('addtoaa');
+                return this.a+this.age;
+            },
+            addToB:function(){
+                console.log('addtobb');
+                return this.b+this.age;
+            }
+        }
+
+    })
+
+
+
+</script>
+</html>
