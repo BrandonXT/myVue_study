@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue2.6.js"></script>
+</head>
+
+<body>
+    <p>初始化多个vue对象</p>
+
+    <div id="app">
+        {{title}}
+        <p>{{xixi}}</p>
+    </div>
+
+    <div id="app2">
+            {{title}}
+            <p>{{xixi}}</p>
+            <button @click="change()">changeone</button>
+    </div>
+
+</body>
+<script>
+    let vm1 = new Vue({
+        el: '#app',
+
+        data: {
+            title:'这是one的title'
+        },
+        methods: {
+
+        },
+        computed: {
+            xixi:function(){
+                return 'xixi第一个';
+            }
+        }
+    });
+    let vm2 = new Vue({
+        el: '#app2',
+        data: {
+            title:'这是one的title'
+        },
+        methods: {
+            change:function(){
+                vm1.title='第一个title被改了';
+            }
+        },
+        computed: {
+            xixi:function(){
+                return 'xixi第二个';
+            }
+        }
+    });
+</script>
+
+</html>
