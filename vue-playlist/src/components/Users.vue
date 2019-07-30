@@ -7,6 +7,7 @@
             <h3 v-show="user.show">{{user.position}}</h3>
             </li>
     </ul>
+    <button @click="deletUser">delete</button>
   </div>
 </template>
 
@@ -24,6 +25,11 @@ export default {
   data () {
     return {
       
+    }
+  },
+  methods:{
+    deletUser(){
+      this.uuser.pop()
     }
   }
 }

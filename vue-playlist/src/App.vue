@@ -3,13 +3,20 @@
   <div id="app">
     <h1>这是app的h1标签</h1>
     <!-- <users></users> -->
-    <app-Header />
+    <app-Header v-bind:title1="title1"/>
    <!-- 这边把模板的数据绑定上让子组件可以调用 -->
     <users :uuser="users" />  
-    <app-Footer />
+    <!-- users是数组，这个就是传的引用 -->
+    <users :uuser="users" />  
+    <!-- title是字符串，所以是传值 -->
+    <app-Footer :title1="title1" />
     
   </div>
 </template>
+
+<!--传值与传引用
+传值： string number boolean
+传引用： array  object-->
  
 <!--行为-->
 <script>
@@ -28,7 +35,8 @@ export default {
         {name:"Brandon",position:"前端开发",show:false},
         {name:"Brandon",position:"前端开发",show:false},
         {name:"Brandon",position:"前端开发",show:false},
-      ]
+      ],
+      title1:"这是一个title",
     }
   },
   //引用

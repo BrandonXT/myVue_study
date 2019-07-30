@@ -1,15 +1,25 @@
 <template>
-  <header>
-      <h1>{{title}}</h1>
+  <header @click="changeTitle">
+      <h1>{{title}} {{title1}}</h1>
   </header>
 </template>
 
 <script>
 export default {
   name: 'app-Header',
+  props:{
+        title1:{
+          type:String
+        }
+      },
   data () {
     return {
-      title:"Vue.js Demo"
+      title:"Vue.js Demo",
+    }
+  },
+  methods:{
+    changeTitle(){
+      this.title1="changed"
     }
   }
 }
