@@ -1,58 +1,36 @@
 <!--父组件   子组件存放在component文件夹里--->
 <template>
   <div id="app">
-    <h1>这是app的h1标签</h1>
-    <!-- <users></users> -->
-    <app-Header @titleChanged="updateTitle($event)" v-bind:title1="title1"/>
-   <!-- 这边把模板的数据绑定上让子组件可以调用 -->
-    <users :uuser="users" />  
-    <!-- users是数组，这个就是传的引用 -->
-    <users :uuser="users" />  
-    <!-- title是字符串，所以是传值 -->
-    <app-Footer :title1="title1" />
-    
+    <ul>
+      <!-- router-link不会重新刷新页面 -->
+      <li><router-link to='/'>home</router-link></li>
+      <li><router-link to='/helloword'>hello</router-link></li>
+      <!-- a标签会重新加载，不好 -->
+      <!-- <li><a href="/">home</a></li> -->
+      <!-- 路由名字叫啥就要写啥 -->
+      <!-- <li><a href="./helloword">helloword</a></li>  -->
+    </ul>
+    <router-view></router-view>
   </div>
 </template>
 
 <!--传值与传引用
 传值： string number boolean  不会同时改变值
-传引用： array  object-->
+传引用： array  object     会同时变化-->
  
 <!--行为-->
 <script>
-//局部注册组件(子组件)导入
-import Users from './components/Users'
-import Header from './components/Header'
-import Footer from './components/Footer'
 
 export default {
   name: 'App',  //App的组件
   data(){
     return {
-      users:[
-        {name:"Brandon",position:"前端开发",show:false},
-        {name:"Brandon",position:"前端开发",show:false},
-        {name:"Brandon",position:"前端开发",show:false},
-        {name:"Brandon",position:"前端开发",show:false},
-        {name:"Brandon",position:"前端开发",show:false},
-      ],
-      title1:"这是一个title",
+     
     }
   },
   methods:{
-    updateTitle(title){
-      this.title1=title;
-    }
+  
   },
-  //引用
-  components:{
-    "users":Users, //此处起的名字不能跟系统标签冲突
-    "app-Header":Header,
-    "app-Footer":Footer
-  }
-  // components:{
-  //   Users
-  //   }
 }
 </script>
 

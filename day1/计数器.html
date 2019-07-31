@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            width: 30px;
+        }
+        span {
+            width: 100px;
+        }
+    </style>
+    <script src="../lib/vue2.6.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="sub" :disabled="isDisplayed">-</button>
+        <span>{{num}}</span>
+        <button @click="add">+</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            num:0,
+            isDisplayed:false
+        },
+        methods:{
+            sub(){
+                if(this.num<=0){
+                    this.isDisplayed=!this.isDisplayed;
+                    return
+                }
+                this.num--;
+            },
+            add(){
+                if(this.num>=10){
+                    // this.isDisplayed=!this.isDisplayed;
+                    return
+                }
+                this.num++
+            }
+        }
+    })
+</script>
+</html>
