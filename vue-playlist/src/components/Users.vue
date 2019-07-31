@@ -2,9 +2,9 @@
   <div class="ussers">
     <h1>这是user的h1标签</h1>
     <ul>
-        <li v-for="user in uuser" @click="user.show = !user.show">
+        <li v-for="user in uuser">
             <h2>{{user.name}}</h2>
-            <h3 v-show="user.show">{{user.position}}</h3>
+            <h3>{{user.email}}</h3>
             </li>
     </ul>
     <button @click="deletUser">delete</button>

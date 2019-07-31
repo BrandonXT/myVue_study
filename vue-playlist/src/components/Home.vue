@@ -29,11 +29,11 @@ export default {
   data(){
     return {
       users:[
-        {name:"Brandon",position:"前端开发",show:false},
-        {name:"Brandon",position:"前端开发",show:false},
-        {name:"Brandon",position:"前端开发",show:false},
-        {name:"Brandon",position:"前端开发",show:false},
-        {name:"Brandon",position:"前端开发",show:false},
+        // {name:"Brandon",position:"前端开发",show:false},
+        // {name:"Brandon",position:"前端开发",show:false},
+        // {name:"Brandon",position:"前端开发",show:false},
+        // {name:"Brandon",position:"前端开发",show:false},
+        // {name:"Brandon",position:"前端开发",show:false},
       ],
       title1:"这是一个title",
     }
@@ -48,10 +48,20 @@ export default {
     "users":Users, //此处起的名字不能跟系统标签冲突
     "app-Header":Header,
     "app-Footer":Footer
-  }
+  },
   // components:{
   //   Users
   //   }
+
+  //在页面加载之前把数据拿到
+  created(){
+    this.$http.get("https://jsonplaceholder.typicode.com/users")
+    .then((data)=>{
+      // console.log(data);
+      this.users=data.body;
+      
+    })
+  }
 }
 </script>
 

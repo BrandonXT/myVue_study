@@ -5,10 +5,13 @@ import App from './App'
 import VueRouter from 'vue-router'
 import HelloWord from './components/HelloWorld.vue'
 import Home from './components/Home.vue'
+import VueResource from 'vue-resource'
 // import Users from './components/Users.vue'
 
 Vue.config.productionTip = false
+//使用中间件。此时任何一个组件都可以使用
 Vue.use(VueRouter)
+Vue.use(VueResource)
 
 //配置路由
 const router = new VueRouter({
