@@ -3,7 +3,7 @@
   <div id="app">
     <h1>这是app的h1标签</h1>
     <!-- <users></users> -->
-    <app-Header v-bind:title1="title1"/>
+    <app-Header @titleChanged="updateTitle($event)" v-bind:title1="title1"/>
    <!-- 这边把模板的数据绑定上让子组件可以调用 -->
     <users :uuser="users" />  
     <!-- users是数组，这个就是传的引用 -->
@@ -15,12 +15,12 @@
 </template>
 
 <!--传值与传引用
-传值： string number boolean
+传值： string number boolean  不会同时改变值
 传引用： array  object-->
  
 <!--行为-->
 <script>
-//局部注册组件(子组件)
+//局部注册组件(子组件)导入
 import Users from './components/Users'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -39,9 +39,14 @@ export default {
       title1:"这是一个title",
     }
   },
+  methods:{
+    updateTitle(title){
+      this.title1=title;
+    }
+  },
   //引用
   components:{
-    users:Users, //此处起的名字不能跟系统标签冲突
+    "users":Users, //此处起的名字不能跟系统标签冲突
     "app-Header":Header,
     "app-Footer":Footer
   }

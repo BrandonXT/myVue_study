@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue2.6.js"></script>
+    <STYLE>
+        span {
+            background: red;
+            display: inline-block;
+            padding: 10px;
+            color: #fff;
+            margin: 10px 0;
+        }
+        .cssColor {
+            background: green;
+        }
+        .cssCLength {
+            content: normal;
+            margin-left: 10px;
+        }
+    </STYLE>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="cssColor=!cssColor">changeColor</button>
+        <button @click="cssCLength=!cssCLength">changeLength</button>
+        <div>
+            <span v-bind:class="comCss">
+                hahahha
+            </span>
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cssColor: false,
+            cssCLength: false
+        },
+        methods: {},
+        computed: {
+            comCss: function () {
+                return {
+                    cssColor:this.cssColor,
+                    cssCLength:this.cssCLength
+                }
+            }
+        }
+    })
+</script>
+
+</html>

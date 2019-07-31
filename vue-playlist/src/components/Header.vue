@@ -19,7 +19,8 @@ export default {
   },
   methods:{
     changeTitle(){
-      this.title1="changed"
+      // this.title1="changed"
+      this.$emit("titleChanged","子向父组件传值"); //前面是事件名，后面是传的值
     }
   }
 }

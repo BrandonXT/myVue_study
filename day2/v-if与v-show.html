@@ -15,6 +15,9 @@
         <!-- v-show的特点: 不会重新进行dom的删除和创建操作,知识切换了display:none   有较高的初始渲染消耗  (涉及到频繁的切换推荐)-->
 
         <h3 v-if="flag">这是用v-if控制的元素</h3>
+        <!-- 当上面的v-if为假时会判断v-else-if，如果是真就不会执行v-else-if -->
+        <h3 v-else-if="flag">这是用v-if控制的元素</h3>
+
         <h3 v-show="flag">这是用v-show控制的元素</h3>
     </div>
 
