@@ -27,14 +27,14 @@
       <ul class="navbar-nav">
           <!-- <li><router-link tag='div' to="/" class="nav-link">tag可以把默认的a标签换成自己想用的</router-link></li>  -->
           <!-- <li><router-link :to="homeLink" class="nav-link">可以通过逻辑改变地址</router-link></li> -->
-          <li><router-link to="/" class="nav-link">主页</router-link></li>
-          <li><router-link to="/menu" class="nav-link">菜单</router-link></li>
-          <li><router-link to="/admin" class="nav-link">管理</router-link></li>
-          <li><router-link to="/about" class="nav-link">关于我们</router-link></li>
+          <li><router-link :to="{name:'homeLink'}" class="nav-link">主页</router-link></li>
+          <li><router-link :to="{name:'menuLink'}" class="nav-link">菜单</router-link></li>
+          <li><router-link :to="{name:'adminLink'}" class="nav-link">管理</router-link></li>
+          <li><router-link :to="{name:'aboutLink'}" class="nav-link">关于我们</router-link></li>
       </ul>
        <ul class="navbar-nav ml-auto">
-          <li><router-link to="/login" class="nav-link">登陆</router-link></li>
-          <li><router-link to="/register" class="nav-link">注册</router-link></li>
+          <li><router-link :to="{name:'loginLink'}" class="nav-link">登陆</router-link></li>
+          <li><router-link :to="{name:'registertLink'}" class="nav-link">注册</router-link></li>
       </ul>
     </nav>
   </header>
@@ -42,11 +42,11 @@
 
 <script>
 export default {
-  data(){
-    return {
-      homeLink:'/',   //可以动态修改路由的地址
-    }
-  }
+  // data(){
+  //   return {
+  //     homeLink:'/',   //可以动态修改路由的地址
+  //   }
+  // }
 }
 </script>
 

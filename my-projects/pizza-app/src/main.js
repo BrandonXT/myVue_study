@@ -11,13 +11,12 @@ import Register from './components/Register'
 Vue.use(VueRouter)
 
 const routes = [
-  {path:"/",component:Home},
-  {path:"/menu",component:Menu},
-  {path:"/admin",component:Admin},
-  {path:"/home",component:Home},
-  {path:"/login",component:Login},
-  {path:"/about",component:About},
-  {path:"/register",component:Register},
+  {path:"/",name:"homeLink",component:Home},
+  {path:"/menu",name:"menuLink",component:Menu},
+  {path:"/admin",name:"adminLink",component:Admin},
+  {path:"/login",name:"loginLink",component:Login},
+  {path:"/about",name:"aboutLink",component:About},
+  {path:"/register",name:"registertLink",component:Register},
   {path:"*",redirect:"/"}  //当上面的路径都没匹配上时，就会自动匹配到*所指的home
 ]
 
