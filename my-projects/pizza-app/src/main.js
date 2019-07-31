@@ -18,6 +18,7 @@ const routes = [
   {path:"/login",component:Login},
   {path:"/about",component:About},
   {path:"/register",component:Register},
+  {path:"*",redirect:"/"}  //当上面的路径都没匹配上时，就会自动匹配到*所指的home
 ]
 
 const router = new VueRouter({
