@@ -8,6 +8,12 @@ import Login from './components/Login'
 import About from './components/about/About.vue'
 import Register from './components/Register'
 
+//引入二级路由
+import Contact from './components/about/Contact.vue'
+import Delivery from './components/about/Delivery.vue'
+import History from './components/about/History.vue'
+import OrderingGuide from './components/about/OrderingGuide.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,7 +21,12 @@ const routes = [
   {path:"/menu",name:"menuLink",component:Menu},
   {path:"/admin",name:"adminLink",component:Admin},
   {path:"/login",name:"loginLink",component:Login},
-  {path:"/about",name:"aboutLink",component:About},
+  {path:"/about",name:"aboutLink",component:About,children:[
+    {path:"/about/contact",name:"contactLink",component:Contact},
+    {path:"/delivery",name:"deliveryLink",component:Delivery},
+    {path:"/history",name:"historyLink",component:History},
+    {path:"/orderGuide",name:"orderGuideLink",component:OrderingGuide}
+  ]},
   {path:"/register",name:"registertLink",component:Register},
   {path:"*",redirect:"/"}  //当上面的路径都没匹配上时，就会自动匹配到*所指的home
 ]
