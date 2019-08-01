@@ -21,27 +21,54 @@ import Personname from './components/about/contact/personName.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {path:"/",name:"homeLink",component:Home},
-  {path:"/menu",name:"menuLink",component:Menu},
-  {path:"/admin",name:"adminLink",component:Admin},
-  {path:"/login",name:"loginLink",component:Login},
-  {path:"/about",name:"aboutLink",component:About,redirect:"/history",children:[
-    {path:"/about/contact",name:"contactLink",component:Contact,redirect:"/phone",children:[
-      {path:"/phone",name:"phoneLink",component:Phone},
-      {path:"/personname",name:"personLink",component:Personname}
-    ]},
-    {path:"/delivery",name:"deliveryLink",component:Delivery},
-    {path:"/history",name:"historyLink",component:History},
-    {path:"/orderGuide",name:"orderGuideLink",component:OrderingGuide}
-  ]},
-  {path:"/register",name:"registertLink",component:Register},
-  {path:"*",redirect:"/"}  //当上面的路径都没匹配上时，就会自动匹配到*所指的home
+  { path: "/", name: "homeLink", component: Home },
+  { path: "/menu", name: "menuLink", component: Menu },
+  {
+    path: "/admin", name: "adminLink", component: Admin
+    // beforeEnter: (to, from, next) => {
+    //   //路由独享守卫，，在路由配置上直接定义=============================
+    //   // alert('未登录，不能进');
+    //   // next(false);
+    //   if (to.path == '/login' || to.path == '/register') {
+    //     next()
+    //   } else {
+    //     alert('请先登录');
+    //     next('/login');
+    //   }
+    // }
+  },
+  { path: "/login", name: "loginLink", component: Login },
+  {
+    path: "/about", name: "aboutLink", component: About, redirect: "/history", children: [
+      {
+        path: "/about/contact", name: "contactLink", component: Contact, redirect: "/phone", children: [
+          { path: "/phone", name: "phoneLink", component: Phone },
+          { path: "/personname", name: "personLink", component: Personname }
+        ]
+      },
+      { path: "/delivery", name: "deliveryLink", component: Delivery },
+      { path: "/history", name: "historyLink", component: History },
+      { path: "/orderGuide", name: "orderGuideLink", component: OrderingGuide }
+    ]
+  },
+  { path: "/register", name: "registertLink", component: Register },
+  { path: "*", redirect: "/" }  //当上面的路径都没匹配上时，就会自动匹配到*所指的home
 ]
 
 const router = new VueRouter({
   routes,
-  mode:'history' //去掉那个 # 号
+  mode: 'history' //去掉那个 # 号
 })
+
+//全局守卫
+// router.beforeEach((to,from,next)=>{
+//   if(to.path == '/login' || to.path=='/register'){
+//     next()
+//   }else{
+//     alert('请先登录');
+//     next('/login');
+//   }
+// })
 
 new Vue({
   router,
