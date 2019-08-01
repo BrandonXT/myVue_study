@@ -14,6 +14,10 @@ import Delivery from './components/about/Delivery.vue'
 import History from './components/about/History.vue'
 import OrderingGuide from './components/about/OrderingGuide.vue'
 
+//引入三级路由
+import Phone from './components/about/contact/phone.vue'
+import Personname from './components/about/contact/personName.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,8 +25,11 @@ const routes = [
   {path:"/menu",name:"menuLink",component:Menu},
   {path:"/admin",name:"adminLink",component:Admin},
   {path:"/login",name:"loginLink",component:Login},
-  {path:"/about",name:"aboutLink",component:About,children:[
-    {path:"/about/contact",name:"contactLink",component:Contact},
+  {path:"/about",name:"aboutLink",component:About,redirect:"/history",children:[
+    {path:"/about/contact",name:"contactLink",component:Contact,redirect:"/phone",children:[
+      {path:"/phone",name:"phoneLink",component:Phone},
+      {path:"/personname",name:"personLink",component:Personname}
+    ]},
     {path:"/delivery",name:"deliveryLink",component:Delivery},
     {path:"/history",name:"historyLink",component:History},
     {path:"/orderGuide",name:"orderGuideLink",component:OrderingGuide}
