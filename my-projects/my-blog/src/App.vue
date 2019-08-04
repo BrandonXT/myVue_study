@@ -1,27 +1,26 @@
 <template>
   <div id="app">
-    <add-blog></add-blog>
+    <!-- <add-blog></add-blog> -->
+    <show-blogs></show-blogs>
   </div>
 </template>
 
 <script>
+//导入组件
 import AddBlog from './components/AddBlog'
-
+import ShowBlogs from './components/Showblogs'
 export default {
   name: 'App',
   components: {
-    AddBlog
+    //挂载路由
+    AddBlog,
+    ShowBlogs
   }
 }
 </script>
 
+
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

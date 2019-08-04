@@ -91,6 +91,51 @@ export default {
 </script>
 
 <style scoped>
+  #add-Blog *{
+    box-sizing: border-box;
+  }
 
-
+  #add-blog{
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+  }
+  label {
+    display: block;
+    margin: 20px 0 10px;
+  }
+  input[type='text'],textarea,select{
+    display: block;
+    width: 100%;
+    padding: 8px;
+  }
+  #checkboxes label{
+    display: inline-block;
+    margin-top: 0px;
+  }
+  #checkboxes input{
+    display: inline-block;
+    margin-right: 10px;
+  }
+  button{
+    display: block;
+    margin: 20px auto 0;
+    background: red;
+    color: white;
+    border:0;
+    border-radius: 5px;
+    padding:14px;
+    font-size: 18px;
+  }
+  textarea{
+    height: 200px;
+  }
+  #preview{
+    padding: 10px 20px;
+    border: 1px dotted #ccc;
+    margin: 30px 0;
+  }
+  h3{
+    margin-top: 10px;
+  }
 </style>
