@@ -6,8 +6,6 @@
     <div class="container">
       <!-- 点击哪个路由就跳转到哪个去 -->
       <router-view></router-view> 
-      <router-view></router-view> 
-      <router-view></router-view> 
     </div>
     <br>
     <div class="container">

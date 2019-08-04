@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue2.6.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        .fade-enter-active {
+            transition: all 0.5s ease;
+        }
+
+        .fade-leave-active {
+            transition: all 0.5s ease;
+        }
+
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="add()">
+            添加元素
+        </button>
+        <transition-group name="fade" tag="div">
+            <p v-for="item in items" :key="item">{{ item }}</p>
+        </transition-group>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data(){
+            return{
+                items:[
+                    "迪迦","泰罗","奥特之父"
+                ]
+            }
+        },
+        methods:{
+            add(){
+                this.items.push("咸蛋超人")
+            }
+        },
+    })
+    axios.get("http://wthrcdn.etouch.cn/weather_mini?city=你好")
+        .then(function (res) {
+            console.log(res);
+            return axios.get("http://wthrcdn.etouch.cn/weather_mini?city=广州")
+        })
+        .then((res) => {
+            console.log(res);
+        })
+</script>
+
+</html>
