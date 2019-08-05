@@ -2,19 +2,22 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import VueRouter from 'vue-router'  //引入路由模块
 import VueResource from 'vue-resource'
+import Routes from './routes' //引入路由文件
 
 Vue.use(VueResource);
+Vue.use(VueRouter);
 
 Vue.config.productionTip = false
 
-// 自定义指令
-Vue.directive('rainbow', {
-  bind(el, binding, vnode) {
-    el.style.color = "#" + Math.random().toString(16).slice(2, 8);
-  }
-})
-//自定义传参模板(el为对象，binding为传递的参数 )
+// 全局自定义指令
+// Vue.directive('rainbow', {
+//   bind(el, binding, vnode) {
+//     el.style.color = "#" + Math.random().toString(16).slice(2, 8);
+//   }
+// })
+//全局自定义传参模板(el为对象，binding为传递的参数 )
 Vue.directive('theme', {
   bind(el, binding, vnode) {
     if (binding.value == 'wide') {
@@ -31,6 +34,20 @@ Vue.directive('theme', {
   }
 })
 
+//自定义全局过滤器
+// Vue.filter("to-uppercase",(value)=>{
+//   return value.toUpperCase();
+// })
+Vue.filter("snippet",function(value){
+  return value.slice(0,100)+"...";
+})
+
+//创建路由
+const router = new VueRouter({
+  routes:Routes,
+  mode:"history"
+})
+
 
 /* eslint-disable no-new */
 new Vue({
@@ -38,5 +55,7 @@ new Vue({
   components: {
     App
   },
-  template: '<App/>'
+  template: '<App/>',
+  //在中心加上
+  router:router
 })
