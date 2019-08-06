@@ -6,7 +6,7 @@
       <router-link :to="'/blog/'+blog.id">
         <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
       </router-link>
-      <article>{{blog.body | snippet}}</article>
+      <article>{{blog.content | snippet}}</article>
     </div>
   </div>
 </template>
@@ -22,10 +22,22 @@ export default {
   },
   created() {
     //一般在钩子函数created请求数据
-    this.$http.get("https://jsonplaceholder.typicode.com/posts").then(res => {
-      this.blogs = res.body.slice(0, 10);
-      // console.log(this.blogs);
-    });
+    this.$http.get("https://vuedemo-b530a.firebaseio.com/posts.json").then(res => {
+
+      // this.blogs = res.body.slice(0, 10);
+      // console.log(res.json());
+      return res.json()
+    }).then((data)=>{
+      let blogsArray=[];
+      for(let key in data){
+        // console.log(key);
+        // console.log(data[key]);
+        data[key].id=key; //给元素加上id属性
+        blogsArray.push(data[key]);
+      }
+      // console.log(blogsArray);
+      this.blogs= blogsArray;
+    })
   },
   computed: {
     filterBlogs: function() {
@@ -42,7 +54,7 @@ export default {
       return value.toUpperCase();
     }
   },
-  directives:{
+  directives:{  //局部自定义
       'rainbow':{
           bind(el,binding,vnode){
               el.style.color="#"+Math.random().toString(16).slice(2, 8);
