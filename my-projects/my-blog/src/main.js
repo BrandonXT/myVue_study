@@ -1,10 +1,18 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+<script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'  //引入路由模块
 import VueResource from 'vue-resource'
 import Routes from './routes' //引入路由文件
+
+//全局配置axios地址  其他axios的地址就可以省略这个公共部分
+// axios.defaults.baseURL = 'https://vuedemo-b530a.firebaseio.com'
+//设置请求头
+// axios.defaults.headers.post['content-type'] = 'application/urlencode'
+//axios.defaults.headers.common['Authorization']='Token'
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
@@ -56,6 +64,6 @@ new Vue({
     App
   },
   template: '<App/>',
-  //在中心加上
-  router:router
+  //在中心挂载
+  router:router //router也可
 })

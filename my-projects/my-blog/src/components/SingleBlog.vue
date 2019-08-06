@@ -36,7 +36,7 @@ export default {
         deleteSingleBlog(){
             this.$http.delete("https://vuedemo-b530a.firebaseio.com/posts/"+this.id+".json")
             .then((res)=>{
-                this.$router.push({path:'/'})
+                this.$router.push({path:'/'})  //使用代码进行路由跳转
             })
         }
     }

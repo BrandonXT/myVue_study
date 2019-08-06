@@ -56,7 +56,7 @@
   </div>
 </template>
 
-
+<script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
 
 <script>
 export default {
@@ -75,7 +75,8 @@ export default {
   },
   methods:{
       post(){
-          this.$http.post("https://vuedemo-b530a.firebaseio.com/posts.json",this.blog)
+          // this.$http.post("https://vuedemo-b530a.firebaseio.com/posts.json",this.blog)
+          axios.post("https://vuedemo-b530a.firebaseio.com/posts.json",this.blog)
           .then((res)=>{
               console.log(res);
               this.submmited=true;

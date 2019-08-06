@@ -11,6 +11,7 @@
   </div>
 </template>
 
+<script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
 <script>
 export default {
   name: "show-blogs",
