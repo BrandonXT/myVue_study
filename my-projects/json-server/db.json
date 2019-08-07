@@ -1,52 +1,105 @@
 {
-    "users": [{
-            "name": "Brandon",
-            "phone": "222-333-444",
-            "email": "Brandon@gmail.com",
-            "id": 1,
-            "age": 20,
-            "companyId": 1
-        },
-        {
-            "name": "BrandonTT",
-            "phone": "222-333-555",
-            "email": "BrandonTT@gmail.com",
-            "id": 2,
-            "age": 20,
-            "companyId": 2
-        },
-        {
-            "name": "BrandonXX",
-            "phone": "222-333-444",
-            "email": "BrandonXX@gmail.com",
-            "id": 3,
-            "age": 20,
-            "companyId": 3
-        },
-        {
-            "name": "BrandonGG",
-            "phone": "222-333-444",
-            "email": "BrandonGG@gmail.com",
-            "id": 4,
-            "age": 20,
-            "companyId": 3
-        }
-    ],
-    "companies":[
-        {
-            "id":1,
-            "name":"APPLE",
-            "discription":"apple is good"
-        },
-        {
-            "id":2,
-            "name":"MICROSOFT",
-            "discription":"microsoft is good"
-        },
-        {
-            "id":3,
-            "name":"GOOGLE",
-            "discription":"google is good"
-        }
-    ]
+  "users": [
+    {
+      "name": "BrandonTT",
+      "phone": "222-333-555",
+      "email": "BrandonTT@gmail.com",
+      "id": 2,
+      "education": "asdafsf",
+      "profession": "asdasdasdas",
+      "profile": "adadasdsa",
+      "school": "qwer",
+      "age": 20,
+      "companyId": 2
+    },
+    {
+      "name": "BrandonXX涛涛涛涛",
+      "phone": "222-333-444",
+      "email": "BrandonXX@gmail.com",
+      "education": "asdafsf",
+      "school": "qwer",
+      "profession": "asdasdasdas",
+      "profile": "adadasdsa",
+      "id": 3
+    },
+    {
+      "name": "BrandonGG",
+      "phone": "222-333-444",
+      "email": "BrandonGG@gmail.com",
+      "id": 4,
+      "education": "asdafsf",
+      "profession": "asdasdasdas",
+      "profile": "adadasdsa",
+      "school": "qwer",
+      "age": 20,
+      "companyId": 3
+    },
+    {
+      "name": "请问请问QWE",
+      "phone": "QEWQ",
+      "email": "QWEQ",
+      "education": "QWEQW",
+      "school": "QWE",
+      "profession": "QWEQW",
+      "profile": "QEQE",
+      "id": 5
+    },
+    {
+      "name": "6666666666666",
+      "phone": "66666666666666",
+      "email": "6666666666666",
+      "education": "6666666666666",
+      "school": "666666666666666",
+      "profession": "666666666666666666",
+      "profile": "666666666666667",
+      "id": 6
+    },
+    {
+      "name": "趣味无穷",
+      "phone": "请问请问",
+      "email": "日期",
+      "education": "亲爱的",
+      "school": "阿萨大",
+      "profession": " 啊阿斯顿",
+      "profile": "23213",
+      "id": 7
+    },
+    {
+      "name": "123123",
+      "phone": "123123",
+      "email": "3123123",
+      "education": "1231212",
+      "school": "412412",
+      "profession": "312414",
+      "profile": "4141241",
+      "id": 8
+    },
+    {
+      "name": "1",
+      "phone": "21",
+      "email": "89",
+      "education": "890",
+      "school": "890",
+      "profession": "890",
+      "profile": "890",
+      "id": 9
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "name": "APPLE",
+      "discription": "apple is good"
+    },
+    {
+      "id": 2,
+      "name": "MICROSOFT",
+      "discription": "microsoft is good"
+    },
+    {
+      "id": 3,
+      "name": "GOOGLE",
+      "discription": "google is good"
+    }
+  ]
 }

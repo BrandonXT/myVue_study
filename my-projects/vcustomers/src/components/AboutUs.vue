@@ -1,5 +1,5 @@
 <template>
-  <div class="aboutus">
+  <div class="aboutus container">
     ABOUTUS
   </div>
 </template>
@@ -9,9 +9,17 @@ export default {
   name: 'AboutUs',
   data () {
     return {
-   
+      id:''
     }
-  }
+  },
+  methods: {
+    
+  },
+  created() {
+    this.id = this.$router.params.id;
+    console.log(this.id);
+    
+  },
 }
 </script>
 

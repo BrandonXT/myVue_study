@@ -3,12 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+// import Axios from 'axios'
+import VueResource from 'vue-resource'
 
+Vue.use(VueResource);
 Vue.use(VueRouter);
-
+// Vue.use(Axios);
 //引入路由
 import Customers from './components/Customers.vue'
 import AboutUs from './components/AboutUs.vue'
+import Add from './components/Add.vue'
+import CustomerDetil from './components/CustomerDetil.vue'
+import Edit from './components/Edit.vue'
 
 //设置路由
 const router = new VueRouter({
@@ -16,6 +22,9 @@ const router = new VueRouter({
   routes:[
     {path:"/",component:Customers},
     {path:"/aboutus",component:AboutUs},
+    {path:'/add',component:Add},
+    {path:"/customer/:id",component:CustomerDetil},
+    {path:"/edit/:id",component:Edit}
   ],
   base:__dirname
 })
