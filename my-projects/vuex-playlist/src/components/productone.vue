@@ -2,7 +2,7 @@
     <div id="one">
         <h1>oneone</h1>
         <ul>
-            <li v-for="(product,index) in productss" :key="index">
+            <li v-for="(product,index) in saleProducts" :key="index">
                 <span>{{product.name}}</span>
                 <span class="price">${{product.price}}</span>
             </li>
@@ -16,7 +16,21 @@ export default {
    computed: {
        productss(){
            return this.$store.state.products;
-       }
+       },
+    //    提高复用性，减少代码冗余，在store里面定义
+    //    saleProducts(){
+    //        //map方法遍历
+    //        let saleProducts = this.$store.state.products.map(product=>{
+    //            return{
+    //                name:`**${product.name}**`,
+    //                price:product.price/2
+    //            }
+    //        })
+    //        return saleProducts;
+    //    }
+    saleProducts(){
+        return this.$store.getters.saleProducts;
+    }
    },
 }
 </script>
