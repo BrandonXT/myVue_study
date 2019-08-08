@@ -7,7 +7,7 @@
                 <span class="price">${{product.price}}</span>
             </li>
         </ul>
-        <button @click="reducePrice">降价</button>
+        <button @click="reducePrice(4)">降价</button>
     </div>
 </template>
 
@@ -34,12 +34,15 @@ export default {
     }
    },
    methods: {
-       reducePrice(){
+       reducePrice(num){
            //在严格模式下无法使用该方法
         //    this.$store.state.products.forEach(element => {
         //        element.price -= 1;
         //    });
-        this.$store.commit('reducePrice');  //commit用来激活mutations里面的reducePrice方法
+
+        // this.$store.commit('reducePrice');  //commit用来激活mutations里面的reducePrice方法
+
+        this.$store.dispatch("reducePrice1",num); //dispatch 用来激活actions里面的方法  这样实现了同步 还能传参数
        }
    },
 }

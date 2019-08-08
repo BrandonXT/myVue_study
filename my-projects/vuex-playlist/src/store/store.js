@@ -37,10 +37,21 @@ const store = new Vuex.Store({
         }
     },
     mutations:{
-        reducePrice:(state)=>{
-            state.products.forEach(data=>{
-                data.price -=1;
-            })
+        reducePrice:(state,payload)=>{
+            // setTimeout(function(){
+                state.products.forEach(data=>{
+                    data.price -=payload;
+                })
+            // },2000)
+        }
+    },
+    actions:{
+        //actions执行异步基本是commit出mutation里面的方法  
+        //好处：方便开发者调试，还能传参（payload） 在后台调试里面有payload参数
+        reducePrice1:(context,payload)=>{
+            setTimeout(function(){
+               context.commit('reducePrice',payload);
+            },2000)
         }
     }
 });
