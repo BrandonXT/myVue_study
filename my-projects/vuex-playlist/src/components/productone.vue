@@ -7,6 +7,7 @@
                 <span class="price">${{product.price}}</span>
             </li>
         </ul>
+        <button @click="reducePrice">降价</button>
     </div>
 </template>
 
@@ -31,6 +32,15 @@ export default {
     saleProducts(){
         return this.$store.getters.saleProducts;
     }
+   },
+   methods: {
+       reducePrice(){
+           //在严格模式下无法使用该方法
+        //    this.$store.state.products.forEach(element => {
+        //        element.price -= 1;
+        //    });
+        this.$store.commit('reducePrice');  //commit用来激活mutations里面的reducePrice方法
+       }
    },
 }
 </script>
@@ -59,3 +69,4 @@ export default {
         display: block;
     }
 </style>
+

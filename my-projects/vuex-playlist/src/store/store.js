@@ -25,15 +25,22 @@ const store = new Vuex.Store({
     },
     //getter方法  可以改变store里面的数据
     getters: {
-        saleProducts:(state)=>{
+        saleProducts:(stat)=>{
             //map方法遍历
-            let saleProducts = state.products.map(product => {
+            let saleProducts = stat.products.map(product => {
                 return {
                     name: `**${product.name}**`,
                     price: product.price / 2
                 }
             })
             return saleProducts;
+        }
+    },
+    mutations:{
+        reducePrice:(state)=>{
+            state.products.forEach(data=>{
+                data.price -=1;
+            })
         }
     }
 });
