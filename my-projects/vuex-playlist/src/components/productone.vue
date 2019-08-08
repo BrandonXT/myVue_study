@@ -12,13 +12,15 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+import {mapActions} from 'vuex'
 export default {
     name:"p-one",
    computed: {
        productss(){
            return this.$store.state.products;
        },
-    //    提高复用性，减少代码冗余，在store里面定义
+    //    提高复用性，减少代码冗余，在store里面定义用getters
     //    saleProducts(){
     //        //map方法遍历
     //        let saleProducts = this.$store.state.products.map(product=>{
@@ -29,21 +31,31 @@ export default {
     //        })
     //        return saleProducts;
     //    }
-    saleProducts(){
-        return this.$store.getters.saleProducts;
-    }
+
+    // saleProducts(){
+    //     return this.$store.getters.saleProducts;
+    // }
+    //若有多个getters需要使用，可用...mapgetters方法，无需一个一个的引入 使用之前要先从vuex里面导入
+    ...mapGetters([
+        "saleProducts"
+
+    ])
+
    },
    methods: {
-       reducePrice(num){
-           //在严格模式下无法使用该方法
-        //    this.$store.state.products.forEach(element => {
-        //        element.price -= 1;
-        //    });
+    //    reducePrice(num){
+    //        //在严格模式下无法使用该方法
+    //     //    this.$store.state.products.forEach(element => {
+    //     //        element.price -= 1;
+    //     //    });
 
-        // this.$store.commit('reducePrice');  //commit用来激活mutations里面的reducePrice方法
+    //     // this.$store.commit('reducePrice');  //commit用来激活mutations里面的reducePrice方法
 
-        this.$store.dispatch("reducePrice1",num); //dispatch 用来激活actions里面的方法  这样实现了同步 还能传参数
-       }
+    //     this.$store.dispatch("reducePrice1",num); //dispatch 用来激活actions里面的方法  这样实现了同步 还能传参数
+    //    }
+    ...mapActions({
+        reducePrice:"reducePrice1"  //可以自定义名字
+    })
    },
 }
 </script>
