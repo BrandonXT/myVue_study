@@ -13,12 +13,11 @@
 <script>
 export default {
     name:"p-one",
-    props:["productss"],
-    data(){
-        return{
-
-        }
-    }
+   computed: {
+       productss(){
+           return this.$store.state.products;
+       }
+   },
 }
 </script>
 
