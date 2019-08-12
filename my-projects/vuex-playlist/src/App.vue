@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <product-list-one></product-list-one>
-    <product-list-two></product-list-two>
+    <product-list-one :msg="message"></product-list-one>
+    <product-list-two @toFathers="getChild"></product-list-two>
+    <p>xx{{message}}xx</p>
   </div>
 </template>
 
@@ -18,7 +19,13 @@ export default {
   },
   data(){
     return{
-     
+      msg:"父組件信息",
+      message:''
+    }
+  },
+  methods:{
+    getChild(value){
+      this.message = value;
     }
   }
 }

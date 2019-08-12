@@ -23,7 +23,7 @@
           <line x1="16.62" y1="12" x2="10.88" y2="21.94" />
         </svg>
       </a>
-      <a href="/" class="navbar-brand">Pizza点餐系统</a>
+      <a href="/" class="navbar-brand">Pizza点餐{{hehe}}系统</a>
       <ul class="navbar-nav">
           <!-- <li><router-link tag='div' to="/" class="nav-link">tag可以把默认的a标签换成自己想用的</router-link></li>  -->
           <!-- <li><router-link :to="homeLink" class="nav-link">可以通过逻辑改变地址</router-link></li> -->
@@ -47,6 +47,11 @@ export default {
   //     homeLink:'/',   //可以动态修改路由的地址
   //   }
   // }
+  data(){
+    return{
+      props:["hehe"]
+    }
+  }
 }
 </script>
 

@@ -9,6 +9,7 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource);
 Vue.use(VueRouter);
 // Vue.use(Axios);
+// Vue.prototypt.$axios = axios
 //引入路由
 import Customers from './components/Customers.vue'
 import AboutUs from './components/AboutUs.vue'

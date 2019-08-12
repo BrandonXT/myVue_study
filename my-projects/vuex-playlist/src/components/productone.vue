@@ -7,7 +7,7 @@
                 <span class="price">${{product.price}}</span>
             </li>
         </ul>
-        <button @click="reducePrice(4)">降价</button>
+        <button @click="reducePrice(4)">降{{msg}}价</button>
     </div>
 </template>
 
@@ -16,6 +16,7 @@ import {mapGetters} from 'vuex'
 import {mapActions} from 'vuex'
 export default {
     name:"p-one",
+    // props:['msg'],
    computed: {
        productss(){
            return this.$store.state.products;

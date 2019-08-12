@@ -1,6 +1,6 @@
 <template>
   <div id="two">
-    <h1>twotwo</h1>
+    <h1 @click="toFather">twotwo</h1>
     <ul>
       <li v-for="(product,index) in saleProducts" :key="index">
         <span>{{product.name}}</span>
@@ -19,6 +19,18 @@ export default {
     },
     saleProducts(){
         return this.$store.getters.saleProducts;
+    }
+  },
+  data(){
+    return{
+      childMsg:"heheh"
+    }
+  },
+  methods:{
+    toFather(){
+      console.log("hh");
+      
+      this.$emit("toFathers",this.childMsg)
     }
   }
 };

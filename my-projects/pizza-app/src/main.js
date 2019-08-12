@@ -8,6 +8,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes,
   mode: 'history', //去掉那个 # 号
+  
   //配置路由滚动
   scrollBehavior(to,from,savedPosition){
     //x，y轴距离
