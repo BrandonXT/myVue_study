@@ -1,26 +1,14 @@
 {
   "users": [
     {
-      "name": "BrandonTT",
+      "name": "BrandonTTxxx",
       "phone": "222-333-555",
       "email": "BrandonTT@gmail.com",
-      "id": 2,
-      "education": "asdafsf",
-      "profession": "asdasdasdas",
-      "profile": "adadasdsa",
-      "school": "qwer",
-      "age": 20,
-      "companyId": 2
-    },
-    {
-      "name": "BrandonXX涛涛涛涛",
-      "phone": "222-333-444",
-      "email": "BrandonXX@gmail.com",
       "education": "asdafsf",
       "school": "qwer",
       "profession": "asdasdasdas",
       "profile": "adadasdsa",
-      "id": 3
+      "id": 2
     },
     {
       "name": "BrandonGG",
